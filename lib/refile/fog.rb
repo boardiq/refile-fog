@@ -35,7 +35,9 @@ module Refile
       end
 
       def open(id)
-        StringIO.new(read(id))
+        Tempfile.new(id) do |f|
+          f.write read(id)
+        end
       end
 
       def read(id)
