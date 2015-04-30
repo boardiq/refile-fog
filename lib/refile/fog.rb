@@ -5,6 +5,7 @@ require "refile/fog/version"
 module Refile
   module Fog
     class Backend
+      extend Refile::BackendMacros
       attr_reader :directory
 
       def initialize(directory:, max_size: nil, prefix: nil, hasher: Refile::RandomHasher.new, connection: nil, **options)
