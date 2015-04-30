@@ -35,8 +35,9 @@ module Refile
       end
 
       def open(id)
-        Tempfile.new(id) do |f|
+        Tempfile.new(id).tap do |f|
           f.write read(id)
+          f.flush
         end
       end
 
