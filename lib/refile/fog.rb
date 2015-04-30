@@ -6,7 +6,7 @@ module Refile
   module Fog
     class Backend
       extend Refile::BackendMacros
-      attr_reader :directory
+      attr_reader :directory, :max_size
 
       def initialize(directory:, max_size: nil, prefix: nil, hasher: Refile::RandomHasher.new, connection: nil, **options)
         @connection = connection || ::Fog::Storage.new(options)
